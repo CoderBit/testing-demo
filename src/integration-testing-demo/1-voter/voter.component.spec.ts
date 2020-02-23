@@ -3,10 +3,10 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 describe('VoterComponent', () => {
+  let mycomponent: VoterComponent;
+  let fixture: ComponentFixture<VoterComponent>;
 
   beforeEach(() => {
-    let mycomponent: VoterComponent;
-    let fixture: ComponentFixture<VoterComponent>;
 
     TestBed.configureTestingModule({
       declarations: [ VoterComponent ]
@@ -19,8 +19,6 @@ describe('VoterComponent', () => {
   });
 
   it('should render total votes', () => {
-    let mycomponent: VoterComponent;
-    let fixture: ComponentFixture<VoterComponent>;
     mycomponent.othersVote = 20;
     mycomponent.myVote = 1;
     fixture.detectChanges();
@@ -31,8 +29,6 @@ describe('VoterComponent', () => {
   });
 
   it('should highlight the upvote button', () => {
-    let mycomponent: VoterComponent;
-    let fixture: ComponentFixture<VoterComponent>;
     mycomponent.myVote = 1;
     fixture.detectChanges();
 
@@ -42,9 +38,7 @@ describe('VoterComponent', () => {
   });
 
   it('should increase totalvotes when I clicked upvote button', () => {
-    let mycomponent: VoterComponent;
-    let fixture: ComponentFixture<VoterComponent>;
-
+    
     let button = fixture.debugElement.query(By.css('.glyphicon-menu-up'));
     button.triggerEventHandler('click', null);
 
