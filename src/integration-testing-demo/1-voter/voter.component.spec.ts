@@ -19,6 +19,8 @@ describe('VoterComponent', () => {
   });
 
   it('should render total votes', () => {
+    let mycomponent: VoterComponent;
+    let fixture: ComponentFixture<VoterComponent>;
     mycomponent.othersVote = 20;
     mycomponent.myVote = 1;
     fixture.detectChanges();
@@ -29,11 +31,23 @@ describe('VoterComponent', () => {
   });
 
   it('should highlight the upvote button', () => {
+    let mycomponent: VoterComponent;
+    let fixture: ComponentFixture<VoterComponent>;
     mycomponent.myVote = 1;
     fixture.detectChanges();
 
     let de = fixture.debugElement.query(By.css('.glyphicon'));
 
     expect(de.classes['highlighted']).toBeTruthy();
+  });
+
+  it('should increase totalvotes when I clicked upvote button', () => {
+    let mycomponent: VoterComponent;
+    let fixture: ComponentFixture<VoterComponent>;
+
+    let button = fixture.debugElement.query(By.css('.glyphicon-menu-up'));
+    button.triggerEventHandler('click', null);
+
+    expect(mycomponent.totalVotes).toBe(1);
   });
 });
